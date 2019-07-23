@@ -18,7 +18,7 @@ function tryConvert(temperature, convert) {
   const rounded = Math.round(output * 1000) / 1000;
   return rounded.toString();
 }
-
+// 成功
 export class Calculator extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +45,8 @@ export class Calculator extends React.Component {
           onTemChange = {this.handleCChange}
           temperature = {ctem}
         />
-        <TemInput scale="f"
+        <TemInput 
+          scale="f"
           onTemChange = {this.handleFChange}
           temperature = {ftem}
         />
