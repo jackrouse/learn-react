@@ -4,7 +4,6 @@ import {Calculator} from './components/calculator/Calculator'
 import {ProvideTest} from './components/provideTest/ProvideTest'
 import {NewsList} from '@/components/newslist/newsList'
 import {MyNewButtom} from '@/components/hoc/hoc.js'
-
 import './App.css';
 
 function App() {
