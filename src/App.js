@@ -4,6 +4,7 @@ import {Calculator} from './components/calculator/Calculator'
 import {ProvideTest} from './components/provideTest/ProvideTest'
 import {NewsList} from '@/components/newslist/newsList'
 import {MyNewButtom} from '@/components/hoc/hoc.js'
+import {HookTest,Counter,Counter1} from '@/components/hookTest/hookTest'
 import './App.css';
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
         <ProvideTest/>
         <NewsList/>
         <MyNewButtom color="pink"/>
+        <HookTest></HookTest>
+        <Counter initialCount={3}/>
+        <Counter1/>
       </div>
     </div>
   );
