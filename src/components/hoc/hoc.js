@@ -31,7 +31,7 @@ const hocFn = (WrapComponent,paramsFn)=> class extends  React.Component{
   }
 
   componentWillUnmount(){
-    document.removeEventListener(this.changeColor)
+    document.removeEventListener('scroll',this.changeColor)
   }
 
   render(){

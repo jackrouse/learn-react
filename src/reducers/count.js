@@ -7,7 +7,7 @@ export function init(initialCount) {
   return {count: initialCount};
 }
 
-export function reducer(state=initState, action) {
+export default function (state=initState, action) {
   switch (action.type) {
     case 'increment':
       return {count: state.count + 1};
@@ -16,6 +16,6 @@ export function reducer(state=initState, action) {
     case 'reset':
       return init(action.payload);
     default:
-      throw new Error();
+      return state
   }
 }

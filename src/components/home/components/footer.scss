@@ -1,0 +1,70 @@
+.footer{
+  &__wrap{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+  }
+  &__main{
+    height: 142px;
+    // background: red;
+    display: flex;
+    align-items: center;
+  }
+  &__tip{
+    height: 218-142 + px;
+    background: #fff9ed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff610f;
+    font-size: 24px;
+  }
+  &__holder{
+    height: 218px;
+  }
+  &__service{
+    text-align: center;
+    width: 94px;
+    &-name{
+      margin-top: 8px;
+      font-size:20px;
+      color: #999999;
+    }
+    &-icon{
+      font-size: 44px;
+      color: #1678ff;
+    }
+  }
+  &__price{
+    .is-small{
+      font-size: 26px;
+      vertical-align: 3px;
+      font-weight: normal;
+    }
+    &-name{
+      font-weight: bold;
+      color: #ff600e;
+      font-size:40px;
+    }
+    &-desc{
+      margin-top: 10px;
+      font-size: 22px;
+      color: #999999;
+    }
+  }
+  &__submit{
+    width: 342px;
+    height: 96px;
+    background: #1678ff;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 22px;
+    margin-left: auto;
+  }
+}

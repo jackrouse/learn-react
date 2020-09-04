@@ -28,7 +28,6 @@ const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
-
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
@@ -43,7 +42,8 @@ const imageInlineSizeLimit = parseInt(
 
 // Check if TypeScript is setup
 const useTypeScript = fs.existsSync(paths.appTsConfig);
-
+const fontLibs = fs.readFileSync('./node_modules/amfe-flexible/index.min.js', 'utf-8')
+const fastclickLibs = fs.readFileSync('./node_modules/fastclick/lib/fastclick.js', 'utf-8')
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -103,6 +103,13 @@ module.exports = function(webpackEnv) {
             // Adds PostCSS Normalize as the reset css with default options,
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
+            require('postcss-adaptive-extra')({ 
+              remUnit: 75 ,autoRem:true,
+              extra:{
+                path:/node_modules\\antd-mobile/,
+                remUnit: 37.5
+              }
+            }),
             postcssNormalize(),
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
@@ -372,6 +379,7 @@ module.exports = function(webpackEnv) {
                 ),
                 
                 plugins: [
+                  ["import", { libraryName: "antd-mobile", style: "css" }],
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
@@ -516,6 +524,10 @@ module.exports = function(webpackEnv) {
           {
             inject: true,
             template: paths.appHtml,
+            templateParameters:{
+              'amfeFlexible':fontLibs,
+              'fastclickLibs':fastclickLibs
+            }
           },
           isEnvProduction
             ? {
